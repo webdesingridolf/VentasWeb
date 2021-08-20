@@ -1,4 +1,5 @@
 -- conecion al repositorio de git 11/08/21
 hola adolfo
 -en esta block de notas realizaremos los comentarios de nuestros cambios que hizimos al sistema
-
+-listo 
+-acabo de agregar el logo de la empresa y el css de la pagina de inicio
