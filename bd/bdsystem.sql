@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `tdetalleventa`
 --
 
-DROP TABLE IF EXISTS `tdetalleventa`;
-CREATE TABLE IF NOT EXISTS `tdetalleventa` (
+DROP TABLE IF EXISTS `vw_detalleventa`;
+CREATE TABLE IF NOT EXISTS `vw_detalleventa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idVenta` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
@@ -47,14 +47,16 @@ CREATE TABLE IF NOT EXISTS `tdetalleventa` (
 -- Estructura de tabla para la tabla `tproductos`
 --
 
-DROP TABLE IF EXISTS `tproductos`;
-CREATE TABLE IF NOT EXISTS `tproductos` (
+DROP TABLE IF EXISTS `vw_productos`;
+CREATE TABLE IF NOT EXISTS `vw_productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(300) NOT NULL,
   `Precio` int(11) NOT NULL,
   `Imagen` varchar(30) NOT NULL,
   `Categoria` enum('Laptops','LaptopsGamer',',','') NOT NULL,
   `Detalle` varchar(300) NOT NULL,
+  `Stock` int(30) NOT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -62,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `tproductos` (
 -- Volcado de datos para la tabla `tproductos`
 --
 
-INSERT INTO `tproductos` (`id`, `Nombre`, `Precio`, `Imagen`, `Categoria`, `Detalle`) VALUES
+INSERT INTO `vw_productos` (`id`, `Nombre`, `Precio`, `Imagen`, `Categoria`, `Detalle`) VALUES
 (1, 'laptop normal', 12, 'lady.jpg', 'Laptops', 'este es un detalle'),
 (2, 'HP LAPTOP 14-CF2067LA CORE I3 8GB 256GB SSD 14\"', 2499, 'HP14.jpg', 'Laptops', 'Modelo: 14-cf2067la\r\nProcesador: Intel Core i3\r\nMemoria RAM: 8GB\r\nDisco Duro: 256GB\r\nPeso (kg): 1.51 kg');
 
@@ -72,8 +74,8 @@ INSERT INTO `tproductos` (`id`, `Nombre`, `Precio`, `Imagen`, `Categoria`, `Deta
 -- Estructura de tabla para la tabla `tventas`
 --
 
-DROP TABLE IF EXISTS `tventas`;
-CREATE TABLE IF NOT EXISTS `tventas` (
+DROP TABLE IF EXISTS `vw_ventas`;
+CREATE TABLE IF NOT EXISTS `vw_ventas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ClaveTransaccion` varchar(250) NOT NULL,
   `PaypalDatos` text NOT NULL,
@@ -88,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `tventas` (
 -- Volcado de datos para la tabla `tventas`
 --
 
-INSERT INTO `tventas` (`id`, `ClaveTransaccion`, `PaypalDatos`, `Fecha`, `Correo`, `Total`, `Status`) VALUES
+INSERT INTO `vw_ventas` (`id`, `ClaveTransaccion`, `PaypalDatos`, `Fecha`, `Correo`, `Total`, `Status`) VALUES
 (1, 'niidea', '', '2020-12-07 00:00:00', 'amoyach971@gmail.com', '60.00', 'pendiente'),
 (2, 'niidea', '', '2020-12-07 00:00:00', 'amoyach971@gmail.com', '60.00', 'pendiente'),
 (3, '09g5h5b6mk9tmcmjkmqlud3s17', '', '2020-12-21 20:11:34', 'troya_prais@hotmail.com', '2511.00', 'pendiente'),
