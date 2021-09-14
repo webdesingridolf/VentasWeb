@@ -3,3 +3,10 @@ hola adolfo
 -en esta block de notas realizaremos los comentarios de nuestros cambios que hizimos al sistema
 -listo 
 -acabo de agregar el logo de la empresa y el css de la pagina de inicio
+--link del video del carrito de compras:
+https://www.youtube.com/watch?v=q1hym-3wsNM
+--conceptos mercado de pago
+--referencias pasarelas de pagos.
+--https://www.ecommercenews.pe/ecommerce-insights/2020/pasarelas-de-pago-en-peru.html
+--https://www.bsale.com.pe/article/conoce-las-7-pasarelas-de-pago-mas-usadas-en-peru
+

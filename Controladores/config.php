@@ -1,6 +1,6 @@
 <?php
 define('servidor', 'localhost');
-define('nombre_bd', 'bdsystem');
+define('nombre_bd', 'ventasweb');
 define('usuario', 'root');
 define('password', '');	
 

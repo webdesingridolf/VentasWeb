@@ -7,7 +7,7 @@ class Acciones
 	public function Mostrar(){
 		$date=new Conexion();
 		$conexion=$date->Conectar();
-		$consulta = "SELECT * FROM tproductos";
+		$consulta = "SELECT * FROM vw_productos";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -16,7 +16,7 @@ class Acciones
 	public function Insertar($clav,$correo,$total){
 		$date=new Conexion();
 		$conexion=$date->Conectar();
-		$consulta = "INSERT INTO `tVentas` (`id`, `ClaveTransaccion`, `PaypalDatos`, `Fecha`, `Correo`, `Total`, `Status`) VALUES (NULL, '$clav', '', NOW(), '$correo', '$total', 'pendiente');";
+		$consulta = "INSERT INTO `vw_Ventas` (`id`, `ClaveTransaccion`, `PaypalDatos`, `Fecha`, `Correo`, `Total`, `Status`) VALUES (NULL, '$clav', '', NOW(), '$correo', '$total', 'pendiente');";
 		$resultado = $conexion->prepare($consulta);
 		$resultado->execute();
 		$idventa=$conexion->lastInsertId();
