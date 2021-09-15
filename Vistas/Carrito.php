@@ -2,9 +2,8 @@
 include_once 'Layout2.php'; 
 include_once '../Controladores/Carrito.php'; 
 include_once '../Controladores/config.php'; 
-
-  
-    
+include_once '../Controladores/PasarelaMercadoPago.php';
+   
 ?>
 <h3>Lista del carrito</h3>
 <table class="table table-striped table-inverse table-responsive">
@@ -45,17 +44,9 @@ include_once '../Controladores/config.php';
             <tr>
                 <td colspan="5">
                     <form action="pago.php" method="post">
-                        <div class="alert alert-success" role="alert">
-                            <div class="form-group">
-                                <label for="my-input">Correo de Contacto:</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Escribe tu correo" aria-describedby="helpId" required>
-                      
-                            </div>
-                            <small id="emailHelp" class="form-text text-muted"> los productos se enviaran a este correo</small>
-                            
-                        </div>
-                        <button class="btn btn-primary btn-lg  btn-block" type="submit" name="btnagregar" value="Pagar"> Proceder a pagar >></button>
-                        
+                        <script
+                            src="https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
+                        </script>
                     </form>
                 </td>
             </tr>

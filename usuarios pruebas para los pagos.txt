@@ -1,0 +1,16 @@
+vendedor
+{
+	"id":824990309,
+	"nickname":"TETE6377924",
+	"password":"qatest9361",
+	"site_status":"active",
+	"email":"test_user_67084105@testuser.com"
+}
+comprador
+{
+	"id": 824993444,
+	"nickname":"TESTYQBWQTTL",
+	"password":"qatest4991",
+	"site_status":"active",
+	"email":"test_user_55131919@testuser.com"
+}
