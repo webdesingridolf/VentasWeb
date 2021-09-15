@@ -9,4 +9,7 @@ https://www.youtube.com/watch?v=q1hym-3wsNM
 --referencias pasarelas de pagos.
 --https://www.ecommercenews.pe/ecommerce-insights/2020/pasarelas-de-pago-en-peru.html
 --https://www.bsale.com.pe/article/conoce-las-7-pasarelas-de-pago-mas-usadas-en-peru
-
+--metodo de pago precencial pago efectivo pago efectivo
+--safety pay: no sirve se tendria que armar todo desde cero, no se pueden hacer cambios.
+--intregacion mercado pago
+--https://www.youtube.com/watch?v=zeY3abtmNgU
