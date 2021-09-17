@@ -24,6 +24,15 @@ class Acciones
 	   
         
 	}
+	public function MostrarDepartamentos(){
+		$date=new Conexion();
+		$conexion=$date->Conectar();
+		$consulta = "SELECT * FROM vw_departamentos";
+		$resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+        $departamentos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        return $departamentos;
+	}
 	
 
 

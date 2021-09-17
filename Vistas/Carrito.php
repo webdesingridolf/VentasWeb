@@ -43,10 +43,9 @@ include_once '../Controladores/PasarelaMercadoPago.php';
             </tr>
             <tr>
                 <td colspan="5">
-                    <form action="pago.php" method="post">
-                        <script
-                            src="https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>">
-                        </script>
+                    <form action="pago.php" method="POST">
+                        <input type="submit" value="Comprar">
+                       
                     </form>
                 </td>
             </tr>

@@ -25,7 +25,8 @@ $preference = new MercadoPago\Preference();
         $item->unit_price = $produc['precio'];
         array_push($srt,$item);
         $preference->items = $srt;
-    }   
+    } 
+      
     $preference->save();
 
 ?>
