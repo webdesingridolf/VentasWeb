@@ -4,10 +4,34 @@ include_once '../Controladores/Carrito.php';
 include_once '../Controladores/config.php'; 
 include_once '../Controladores/conexion.php'; 
 include_once '../Controladores/CRUD.php';
-   $correo=$_POST["email"]; 
-   
+   //$correo=$_POST["email"]; 
+   ?>
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+   </head>
+   <body>
+       <form action="" method="post">
+           <p>Nombre</p>
+           <input type="text" name="Nombre" id="">
+           <p>Apellido</p>
+           <input type="text" name="Apellido" id="">
+           <p>Direccion</p>
+           <input type="text" name="Direccion" id="">
+           <p>Departamento</p>
+           <select name="" id="">
+               <option value=""></option>
+           </select>
+       </form>
+       
+   </body>
+   </html>
     
-
+<?php
 
 if ($_POST) {
     $sid=session_id();
