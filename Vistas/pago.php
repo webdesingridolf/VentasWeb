@@ -23,16 +23,21 @@ include_once '../Controladores/CRUD.php';
            <p>Direccion</p>
            <input type="text" name="Direccion" id="">
            <p>Departamento</p>
-           <select name="" id="">
-               <option value=""></option>
+           <select name="" id="departamento">
            </select>
+           <p>Provincia</p>
+           <select name="" id="provincia"></select>
+           <p>Distrito</p>
+           <select name="" id="distrito" width=100%></select>
        </form>
-       
-   </body>
-   </html>
+
+       <script src="../JS/jquery.min.js"></script>
+    <script src="../JS/selectDepartamentos.js"></script>
     
+   
 <?php
 
+/*
 if ($_POST) {
     $sid=session_id();
     $total=0;
@@ -86,3 +91,4 @@ $preference->save();
     
 </body>
 </html>
+*/

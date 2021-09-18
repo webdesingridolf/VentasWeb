@@ -27,13 +27,75 @@ class Acciones
 	public function MostrarDepartamentos(){
 		$date=new Conexion();
 		$conexion=$date->Conectar();
-		$consulta = "SELECT * FROM vw_departamentos";
+		$consulta = "SELECT * FROM vw_departamento";
 		$resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $departamentos = $resultado->fetchAll(PDO::FETCH_ASSOC);
         return $departamentos;
 	}
 	
+
+	function listarDepartamento(){
+		$date=new Conexion();
+		$conexion=$date->Conectar();
+		$consulta = "SELECT * FROM vw_departamento";
+		$resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+		$departamento=$resultado->fetchAll(PDO::FETCH_ASSOC);
+
+		$json=array();
+		foreach ($departamento as $row) {
+			$json[] = array(
+                'codDepartamento' => $row['idDepa'],
+                'nomDepartamento' => $row['departamento'],
+            );
+		}
+        
+        $jsonstring = json_encode($json);
+		return $jsonstring;
+
+	}
+	function obtenerProvincias($codDepartamento) {
+        $date=new Conexion();
+		$conexion=$date->Conectar();
+		$consulta = "SELECT * FROM vw_provincia WHERE idDepa=$codDepartamento";
+		$resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+		
+		$provincia=$resultado->fetchAll(PDO::FETCH_ASSOC);
+		$json=array();
+		foreach ($provincia as $row) {
+			$json[] = array(
+                'codProvincia' => $row['idProv'],
+                'nomProvincia' => $row['provincia'],
+            );
+		}
+		
+
+        $jsonstring = json_encode($json);
+		return $jsonstring;
+    }
+
+    function obtenerDistritos($codProvincia) {
+        $date=new Conexion();
+		$conexion=$date->Conectar();
+		$consulta = "SELECT * FROM vw_distrito WHERE idProv=$codProvincia";
+		$resultado = $conexion->prepare($consulta);
+        $resultado->execute();
+		$distrito=$resultado->fetchAll(PDO::FETCH_ASSOC);
+		$json=array();
+		foreach ($distrito as $row) {
+			$json[] = array(
+                'codDistrito' => $row['idDist'],
+                'nomDistrito' => $row['distrito'],
+            );
+		}
+
+        $jsonstring = json_encode($json);
+		return $jsonstring;
+    }
+
+
 
 
 	
