@@ -1,10 +1,11 @@
 <?php
 include_once "Conectar.php";
 include_once "CreateTabla.php";
+include_once "CrearTablaProducto.php";
 //$Conexion = new Conexiondb();
 //$Conexion->Conectar();
 
-$creartabla = new CreateTabla(); 
+//$creartabla = new CreateTabla(); 
 //$creartabla->CrearTablaUsuario();
 
 
@@ -15,3 +16,11 @@ $creartabla = new CreateTabla();
 //$creartabla->InsertUsuario("L","123","ejemplo@gmail.com");
 //$creartabla->InsertUsuario("F","123","ejemplo@gmail.com");
 //$creartabla->InsertUsuario("O","123","ejemplo@gmail.com");
+
+$creartablaproducto = new CrearTablaProduto();
+//$creartablaproducto->CrearTablaDetalleVenta();
+//$creartablaproducto->CrearTablaProducto();
+//$creartablaproducto->CrearTablaVenta();
+//$creartablaproducto->CrearTablaDepartamento();
+//$creartablaproducto->CrearTablaProvincia();
+$creartablaproducto->CrearTablaDistrito();

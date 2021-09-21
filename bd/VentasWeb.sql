@@ -362,7 +362,7 @@ INSERT INTO `vw_provincia` (`idProv`, `provincia`, `idDepa`) VALUES
 -- Estructura de tabla para la tabla `ubdistrito`
 --
 
-CREATE TABLE `vw_distrito` (
+CREATE TABLE IF NOT EXISTS`vw_distrito` (
   `idDist` int(5) NOT NULL DEFAULT 0,
   `distrito` varchar(50) DEFAULT NULL,
   `idProv` int(5) DEFAULT NULL
