@@ -1,66 +1,79 @@
-<?php 
-    include_once '../Controladores/CRUD.php';
-    include_once '../Vistas/Layout.php';
-    include_once  '../Controladores/config.php';
+<?php
+include_once 'layout.php';
+include_once '../Controladores/CRUD.php';
+include_once  '../Controladores/config.php';
     $Productos=new Acciones();
     $Mostrar=$Productos-> Mostrar();
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     
- ?>
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Productos</title>
-     
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- </head>
- <body>
- <div class="container">
-       
-              <div align="center">
-              <h2 class="text-center"></h2>
-              <div class="row">
-                    <?php foreach($Mostrar as $item){ ?>
-                
-            	<div class="col-3">
-                
-                    <div class="card text-white bg-primary">
-                      <img height="317px" class="card-img-top" src="../img/<?php echo $item['Imagen'] ?>"  data-toggle="popover" title="<?php echo $item['Detalle']; ?>"  >
-                      <div class="card-body">
-                        <h4 class="card-title"> <?php echo $item['Nombre']?></h4>
-                        <p class="card-text">Precio: $<?php echo $item['Precio'] ?></p>
-                        <form action="Carrito.php" method="POST">
-                            <!--formulario para enviar los datos encriptados-->
-                            <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($item['id'],CODE,KEY); ?>" >
-                            <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($item['Nombre'],CODE,KEY); ?>">
-                            <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($item['Precio'],CODE,KEY);?>">
-                            <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1,CODE,KEY);?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/sweetalert2.min.css">
 
-                            <input type="submit" name="btnagregar" class="btn btn-dark" value="Agregar">
-                        </form>
-                      </div>
+    <title>Carrito Compras en JavaScript</title>
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+    <main>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
+            <h1 class="display-4 mt-4">Lista de Productos</h1>
+            <p class="lead">Selecciona uno de nuestros productos y accede a un descuento</p>
+        </div>
+
+        <div class="container" id="lista-productos">
+            <?php foreach($Mostrar as $item){ ?>
+
+            <div class="card-deck mb-3 text-center">
+
+                <div class="card mb-4 shadow-sm">
+                   <img src="../img/LogoSAM.png" class="card-img-top">
+                    <div class="card-body">
+                        <h4 class="my-0 font-weight-bold"><?php echo $item['Nombre']?></h4>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li></li>
+                            <li><?php echo $item['Detalle']; ?></li>
+                            
+                        </ul>
+                        <h1 class="card-title pricing-card-title precio">S/. <span class=""><?php echo $item['Precio'] ?></span></h1>
+                        <p><?php echo $item['id']; ?></p>
+                        
+                        
+                        <a href="" class="btn btn-block btn-primary agregar-carrito" data-id="<?php echo $item['id']; ?>">Comprar</a>
                     </div>
-                
-                   
+                </div>
 
+               
                 
+
             </div>
             <?php } ?>
-            </div>
+
         </div>
-    </div>
-    
-    <script>
-        $(document).ready(function(){
-        $('[data-toggle="popover"]').popover();   
-    });
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
- </body>
- </html>
-            
+    </main>
+
+    <script src="../JS/jquery-3.4.1.min.js"></script>
+    <script src="../JS/carrito.js"></script>
+    <script src="../JS/pedido.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+    <script src="../JS/sweetalert2.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+   
+</body>
+
+</html>

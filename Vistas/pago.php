@@ -4,6 +4,8 @@ include_once '../Controladores/Carrito.php';
 include_once '../Controladores/config.php'; 
 include_once '../Controladores/conexion.php'; 
 include_once '../Controladores/CRUD.php';
+$cantidad=$_POST["id"];
+echo $cantidad;
    //$correo=$_POST["email"]; 
    ?>
    <!DOCTYPE html>
@@ -15,7 +17,7 @@ include_once '../Controladores/CRUD.php';
        <title>Document</title>
    </head>
    <body>
-       <form action="" method="post">
+       <form action="metodopago.php" method="post">
            <p>Nombre</p>
            <input type="text" name="Nombre" id="">
            <p>Apellido</p>
@@ -28,7 +30,12 @@ include_once '../Controladores/CRUD.php';
            <p>Provincia</p>
            <select name="" id="provincia"></select>
            <p>Distrito</p>
+           <i class="fas fa-plus"></i>
+           <button ><i class="fas fa-plus"></i></button>
            <select name="" id="distrito" width=100%></select>
+           <input type="submit" value=""  placeholder="#f068"> 
+           <button ></button>
+          
        </form>
 
        <script src="../JS/jquery.min.js"></script>

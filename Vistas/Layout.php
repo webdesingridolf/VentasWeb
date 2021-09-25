@@ -1,40 +1,69 @@
-<?php include_once '../Controladores/Carrito.php';  ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Tienda</title>
-</head>
-<body>
-    
-    <ul class="nav nav-tabs">
-        
-        <li class="nav-item">
-            <a href="../index.php" class="nav-link ">Inicio</a>
-        </li>
-        <li class="nav-item">
-            <a href="Productos.php" class="nav-link ">Productos</a>
-        </li>
-        <li class="nav-item">
-            <a href="Nosotros.php" class="nav-link ">Nosotros</a>
-        </li>
-        <li class="nav-item">
-            <a href="Carrito.php" class="nav-link ">Carrito de compras(<?php
-            echo(empty($_SESSION['Carrito']))?0:count($_SESSION['Carrito']);
-             ?>)</a>
-        </li>
-       
-        
-      
-       
-    </ul>
+ <html>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+ <head>
+     <title></title>
     
-</body>
+ </head>
+
+ <body>
+     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #2287bd;">
+         <div class="container-fluid">
+             <a class="navbar-brand" href="inicio.php">Inicio</a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                 <ul class="navbar-nav">
+
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="Productos.php">Productos</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="Nosotros.php">Contactenos</a>
+                     </li>
+                     <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Nuestros Servicios
+                         </a>
+                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                             <li><a class="dropdown-item" href="#">Reparacion de Ordenadores y Laptops</a></li>
+                             <li><a class="dropdown-item" href="#">Recuperacion de Datos</a></li>
+                             <li><a class="dropdown-item" href="#">Instalacion de Antivirus</a></li>
+                         </ul>
+                     </li>
+                     <div class="collapse navbar-collapse" id="navbarCollapse">
+                         <ul class="navbar-nav mr-auto">
+                             <li class="nav-item dropdown">
+                                 <i class="fas fa-shopping-cart nav-link dropdown-toggle img-fluid" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+
+                                 <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                     <table id="lista-carrito" class="table">
+                                         <thead>
+                                             <tr>
+                                                 <th>Imagen</th>
+                                                 <th>Nombre</th>
+                                                 <th>Precio</th>
+                                                 <th></th>
+                                             </tr>
+                                         </thead>
+                                         <tbody></tbody>
+                                     </table>
+
+                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                         Compra</a>
+                                 </div>
+                             </li>
+                         </ul>
+                     </div>
+
+                 </ul>
+             </div>
+         </div>
+     </nav>
+
+
+ </body>
+ 
 </html>
