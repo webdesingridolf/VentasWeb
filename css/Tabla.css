@@ -1,0 +1,24 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background: pink;
+    padding: 0% 10% 0% 10% ;
+}
+table{
+    text-align: center;
+    width: 100%;
+    /* border-spacing: 0; */
+    border-collapse: collapse;
+    /* border-style:dashed; */
+    border: black  1px;
+}
+th{
+    background: #a356c7;
+}
+th , td{
+    border-style:solid;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
