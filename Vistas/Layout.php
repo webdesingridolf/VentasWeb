@@ -51,8 +51,11 @@
                                      </table>
 
                                      <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-                                         Compra</a>
+                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
+                                     <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a>
+                                     <form action="#" method="post">
+                                         <input type="submit" name="cerrar" value="cerrar">
+                                     </form>
                                  </div>
                              </li>
                          </ul>
@@ -67,3 +70,11 @@
  </body>
  
 </html>
+<?php
+if(isset($_POST["cerrar"])){
+    require_once ("../Controladores/SessionControlador.php");
+    $controlador = new SessionControlador();
+    $controlador->CerrarSession();
+    header("location: Session.php");
+}
+?>

@@ -17,7 +17,15 @@
         <input type="text" name="e_mail" id="" placeholder="Ejemplo@gmail.com"><br>
         <input type="submit" value="Registrar"><br>
         <p>Haga click en el enlase si ya tiene <br> una cuenta 
-            <a href="Session.html">Login</a></p>
+            <a href="Session.php">Login</a></p>
     </form>
 </body>
 </html>
+<?php
+if (isset($_POST["usuario"]) and isset($_POST["pasword"]) and isset($_POST["e_mail"])) {
+    include_once "../Modelo/CRUDUsuario.php";
+    $Modelo = NEW CRUDUsuario();
+    $Modelo->InsertUsuario($_POST["usuario"], $_POST["pasword"],$_POST["e_mail"]);
+    header("Session.php");
+}
+?>

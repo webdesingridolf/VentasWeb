@@ -8,15 +8,40 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="#" method="post">
         <img src="" alt="img"></br>
         <label for="usuario">IdUsuario</label>   
         <input type="text" name="usuario" id=""> <br>
         <label for="pasword">Password</label>
         <input type="text" name="pasword" id=""> <br>
         <input type="submit" value="Ingresar">
-        <p>registrese aqui <a href="Registrate.html">registrate</a></p>
+        <p>registrese aqui <a href="Registrate.php">registrate</a></p>
         
     </form>
 </body>
 </html>
+<?php
+    //validacion sesion
+    require_once ("../Controladores/SessionControlador.php");
+    //session_start();
+    if (isset($_SESSION['usuario'])) {
+        //echo "si existe usuario Sesion : ".$_SESSION['usuario'];
+        header("location: inicio.php");
+    }
+    else{
+        //echo "no exite usuario : ";
+    }
+    //session_unset();
+    //validacion usuario
+    if(isset($_POST["usuario"]) and isset($_POST["pasword"])){
+        $controlador = new SessionControlador();
+        $controlador->IniciarSession($_POST["usuario"],$_POST["pasword"]);
+        if (isset($_SESSION['usuario'])) {
+            //echo "si existe usuario Sesion : ".$_SESSION['usuario'];
+            header("location: inicio.php");    
+        }
+        else{
+            //echo "no exite usuario : ";
+        }
+    }
+?>
