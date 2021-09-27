@@ -61,16 +61,19 @@ class CRUDUsuario{
     public function SelectUnUsuario($usuario,$pasword){//funciona
         require_once("Conectar.php");
         $Conexion = new Conexiondb();
-        $sql = "SELECT * FROM vw_usuario WHERE usuario=? and pasword=?";
+        $sql = "SELECT * FROM vw_usuario WHERE usuario=BINARY? and pasword=?";
         $stmt = $Conexion->Conectar()->prepare($sql);
         $stmt->bindParam(1, $usuario);
         $stmt->bindParam(2, $pasword);
         $stmt->execute();
-        $result=$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+            return $stmt->fetchAll();    
+    
+        /*$result=$stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach ($stmt->fetchAll() as $key => $value) {
             var_dump($value);
             //echo $value;
-        }
+        }*/
 
     }
 }

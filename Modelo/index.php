@@ -30,6 +30,6 @@ $CRUD = NEW CRUDUsuario();
 //$CRUD->SelectUsuario();
 
 //$CRUD->UpdateUsuario("gatito",2);
-//$CRUD->InsertUsuario("prueba", "1234", "rx@gmail.com");
+//$CRUD->InsertUsuario("l", "123", "rx@gmail.com");
 //$CRUD->DeleteUsuario(10);
 //$CRUD->SelectUnUsuario("l","123");
