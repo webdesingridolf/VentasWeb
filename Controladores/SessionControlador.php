@@ -6,17 +6,11 @@ class SessionControlador{
         include_once "../Modelo/CRUDUsuario.php";
         $Modelo =  new  CRUDUsuario();
         $stmt = $Modelo->SelectUnUsuario($usuario,$pasword);
-        //var_dump($Modelo->SelectUnUsuario($usuario,$pasword));
-        //var_dump($stmt);
+        
         foreach ($stmt as $key => $value) {
   
         }
-            //echo $value[1];
-            //echo $value[2];
-        
-        //codigo inicio de sesion
-        //$_SESSION['usuario']=$usuario;
-        //$_SESSION['pasword']=$pasword;
+            
         if (isset($value[1]) and isset($value[2])) {
             if ($usuario === $value[1]) {
                 if ($pasword === $value[2]) {
