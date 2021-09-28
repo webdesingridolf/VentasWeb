@@ -1,3 +1,8 @@
+<?php
+    include_once("Layout.php")
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,35 +10,15 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/estilo.css">
-    <script src="../js/popper.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../css/sweetalert2.min.css">
+    
 
     <title>Carrito Compras en JavaScript</title>
 
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="row justify-content-between mb-5">
-                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <a class="navbar-brand" href="index.html">BODEGUITA FLORES EIRL</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <br>
-
+   
+  
     <main>
         <div class="container">
             <div class="row mt-3">
@@ -101,7 +86,7 @@
 
                         <div class="row justify-content-between">
                             <div class="col-md-4 mb-2">
-                                <a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
+                                <a href="Productos.php" class="btn btn-info btn-block">Seguir comprando</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
                                 <input type="submit" class="btn btn-success btn-block" id="procesar-compra" value="Realizar compra">
