@@ -8,6 +8,8 @@
                 usuario varchar(30) not null,
                 pasword varchar(30) not null,
                 e_mail varchar(50) not null,
+                categoria varchar(20)not null,
+                activo boolean not null,
                 reg_date timestamp default current_timestamp on update current_timestamp
 
             )";
