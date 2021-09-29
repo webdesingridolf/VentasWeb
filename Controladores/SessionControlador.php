@@ -1,8 +1,8 @@
 <?php
-session_start();
+//session_start();
 class SessionControlador{    
     public function IniciarSession($usuario,$pasword){
-        //session_start();
+        session_start();
         include_once "../Modelo/CRUDUsuario.php";
         $Modelo =  new  CRUDUsuario();
         $stmt = $Modelo->SelectUnUsuario($usuario,$pasword);
@@ -26,7 +26,7 @@ class SessionControlador{
 
     public function CerrarSession(){
         //session_start();
-        //var_dump($_SESSION['usuario']);
+        //var_dump($_SESSION["usuario"]);
         session_unset();
         session_destroy();
         //var_dump($_SESSION['usuario']);

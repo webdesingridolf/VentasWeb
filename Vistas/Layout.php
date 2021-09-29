@@ -68,15 +68,33 @@
 
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
-                                    <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a>
-                                    <form action="#" method="post">
-                                        <input type="submit" name="cerrar" value="cerrar">
-                                    </form>
+
+                                    
+                                    
                                 </div>
                             </li>
                         </ul>
                     </div>
 
+                    <?php
+                    if (isset($_SESSION["usuario"])) {
+                        ?>
+                        <form action="" method="post">
+                        <input type="submit" name="cerrar" value="cerrar">
+                        </form>
+                        <?php    
+                    }else{
+                        ?>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Session.php">login</a>
+                        <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
+                        </li>
+                        <?php
+                    }
+
+                    ?>
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -111,6 +129,6 @@ if (isset($_POST["cerrar"])) {
     require_once("../Controladores/SessionControlador.php");
     $controlador = new SessionControlador();
     $controlador->CerrarSession();
-    header("location: Session.php");
+    //header("location: /Session.php");
 }
 ?>
