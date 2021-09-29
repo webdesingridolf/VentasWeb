@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `vw_productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(300) NOT NULL,
   `Precio` int(11) NOT NULL,
-  `Imagen` varchar(30) NOT NULL,
+  `Imagen` mediumblob NOT NULL,
   `Categoria` enum('Laptops','LaptopsGamer',',','') NOT NULL,
   `Detalle` varchar(300) NOT NULL,
   `Stock` int(30) NOT NULL,
@@ -85,6 +85,17 @@ CREATE TABLE IF NOT EXISTS `vw_ventas` (
   `Status` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `vw_usuario`;
+
+CREATE TABLE IF NOT EXISTS `vw_usuario`(
+                id int(6) unsigned AUTO_INCREMENT primary key,
+                usuario varchar(30) not null,
+                pasword varchar(30) not null,
+                e_mail varchar(50) not null,
+                categoria varchar(20)not null,
+                activo boolean not null,
+                reg_date timestamp default current_timestamp on update current_timestamp
+                )ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 
 
@@ -109,8 +120,7 @@ CREATE TABLE IF NOT EXISTS `vw_ventas` (
 
 
 
-
-
+DROP TABLE IF EXISTS `vw_departamento`;
 
 CREATE TABLE `vw_departamento` (
   `idDepa` int(5) NOT NULL DEFAULT 0,
@@ -152,6 +162,7 @@ INSERT INTO `vw_departamento` (`idDepa`, `departamento`) VALUES
 --
 -- Estructura de tabla para la tabla `vw_provincia`
 --
+DROP TABLE IF EXISTS `vw_provincia`;
 
 CREATE TABLE `vw_provincia` (
   `idProv` int(5) NOT NULL DEFAULT 0,
@@ -361,6 +372,7 @@ INSERT INTO `vw_provincia` (`idProv`, `provincia`, `idDepa`) VALUES
 --
 -- Estructura de tabla para la tabla `ubdistrito`
 --
+DROP TABLE IF EXISTS `vw_distrito`;
 
 CREATE TABLE IF NOT EXISTS`vw_distrito` (
   `idDist` int(5) NOT NULL DEFAULT 0,
