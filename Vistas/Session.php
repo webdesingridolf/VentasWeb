@@ -23,7 +23,7 @@
 <?php
     //validacion sesion
     require_once ("../Controladores/SessionControlador.php");
-    //session_start();
+    session_start();
     if (isset($_SESSION['usuario'])) {
         //echo "si existe usuario Sesion : ".$_SESSION['usuario'];
         header("location: inicio.php");
@@ -38,7 +38,7 @@
         $controlador->IniciarSession($_POST["usuario"],$_POST["pasword"]);
         if (isset($_SESSION['usuario'])) {
             //echo "si existe usuario Sesion : ".$_SESSION['usuario'];
-            header("location: inicio.php");    
+            header("location: Admin.php");    
         }
         else{
             //echo "no exite usuario : ";

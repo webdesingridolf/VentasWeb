@@ -2242,6 +2242,13 @@ ALTER TABLE `vw_distrito`
 --
 ALTER TABLE `vw_provincia`
   ADD PRIMARY KEY (`idProv`);
+--
+--
+--
+ALTER TABLE `vw_usuario`
+  ADD COLUMN categoria varchar (20) AFTER e_mail,
+  ADD COLUMN activo BOOLEAN;
+
 
 COMMIT;
 
