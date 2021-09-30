@@ -69,32 +69,35 @@
                                     <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
                                     <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
 
-                                    
-                                    
+
+
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-success">Iniciar Sesion</button>
                             </li>
                         </ul>
                     </div>
 
                     <?php
                     if (isset($_SESSION["usuario"])) {
-                        ?>
+                    ?>
                         <form action="" method="post">
-                        <input type="submit" name="cerrar" value="cerrar">
+                            <input type="submit" name="cerrar" value="cerrar">
                         </form>
-                        <?php    
-                    }else{
-                        ?>
+                    <?php
+                    } else {
+                    ?>
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Session.php">login</a>
-                        <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
+                            <a class="nav-link active" aria-current="page" href="Session.php">login</a>
+                            <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
                         </li>
-                        <?php
+                    <?php
                     }
 
                     ?>
-                    
-                    
+
+
                 </ul>
             </div>
         </div>
