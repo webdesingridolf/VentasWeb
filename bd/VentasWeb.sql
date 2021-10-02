@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `vw_detalleventa` (
 
 --
 -- Estructura de tabla para la tabla `tproductos`
---
+-- 
 
 DROP TABLE IF EXISTS `vw_productos`;
 CREATE TABLE IF NOT EXISTS `vw_productos` (
