@@ -1,12 +1,5 @@
-<?php 
-if (isset($_POST["nro"]) ) {
-    $nroVaucher=$_POST["nro"];
-    if ($nroVaucher<=7  ) {
-        echo " Compra Exitosa ";
-    }
-    else{
-        echo " Error al procesar la compra";
-    }
-}
+<?php
+include_once '../Controladores/CRUDProductos.php';
+$producto = new CRUDProductos();
+$agregar = $producto->Agregar($nombre,$detalle,$imagen,$categoria,$stock,$precio);
 ?>
-<a href="../index.php">Volver</a>

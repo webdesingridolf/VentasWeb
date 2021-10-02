@@ -22,6 +22,17 @@ class CrearTablaProduto{
         $conexion->Conectar()->exec($sql);
         $conexion = null ;
     }
+    public function CrearTablaCategoria(){
+        $conexion = new Conexiondb();
+        $conexion->Conectar();
+        $sql = "CREATE TABLE IF NOT EXISTS `vw_categoria` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `Nombre` varchar(300) NOT NULL,
+            PRIMARY KEY (`id`)
+            ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1";
+
+        $conexion->Conectar()->exec($sql);
+    }
     
     public function CrearTablaProducto(){
         include_once "Conectar.php";
@@ -29,15 +40,17 @@ class CrearTablaProduto{
         $conexion->Conectar();
         //var_dump($conexion->Conectar());
         $sql = "CREATE TABLE IF NOT EXISTS `vw_productos` (
-                `id` int(11) NOT NULL AUTO_INCREMENT,
-                `Nombre` varchar(300) NOT NULL,
-                `Precio` int(11) NOT NULL,
-                `Imagen` varchar(30) NOT NULL,
-                `Categoria` enum('Laptops','LaptopsGamer',',','') NOT NULL,
-                `Detalle` varchar(300) NOT NULL,
-                `Stock` int(30) NOT NULL,          
-                PRIMARY KEY (`id`)
-                ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1";
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `Nombre` varchar(300) NOT NULL,
+            `Precio` int(11) NOT NULL,
+            `Imagen` mediumblob NOT NULL,
+            `Categoria` int NOT NULL,
+            `Detalle` varchar(300) NOT NULL,
+            `Stock` int(30) NOT NULL,  
+            FOREIGN KEY fk_categoria_id(Categoria)
+            REFERENCES vw_categoria(id),        
+            PRIMARY KEY (`id`)
+            ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1";
 
         $conexion->Conectar()->exec($sql);
 

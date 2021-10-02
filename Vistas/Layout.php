@@ -14,7 +14,7 @@
 
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/estilo.css">
+    <!--<link rel="stylesheet" href="../css/estilo.css">-->
     <script src="../js/popper.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -89,7 +89,7 @@
                     } else {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="Session.php">login</a>
+                            <a class="btn btn-success" aria-current="page" href="Session.php">login</a>
                             <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
                         </li>
                     <?php

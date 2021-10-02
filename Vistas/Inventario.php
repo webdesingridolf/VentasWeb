@@ -1,9 +1,13 @@
 <?php
 include_once("AdminBarNav.php");
 include_once '../Controladores/CRUD.php';
+include_once '../Controladores/CRUDProductos.php';
 
 $Productos = new Acciones();
 $Mostrar = $Productos->Mostrar();
+$Categorias = new CRUDCategorias();
+$MostrarCategorias = $Categorias->Mostrar();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +17,18 @@ $Mostrar = $Productos->Mostrar();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/Style.css">
+
+
 </head>
 
 <body>
     <br></br>
-    
+
     <!-- TABLE: LATEST ORDERS -->
-    <div class="" style="padding-right: -0.5px;    padding-left: 27.5px;">
+    <div class="" style="padding-right: -0.5px;    padding-left: 242px;">
         <div class="card-header border-transparent">
-            <h3 class="card-title">Latest Orders</h3>
+            <h3 class="card-title">Lista de Productos</h3>
 
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -38,69 +45,32 @@ $Mostrar = $Productos->Mostrar();
                 <table class="table m-0">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Item</th>
-                            <th>Status</th>
-                            <th>Popularity</th>
+                            <th>id</th>
+                            <th>Nombre</th>
+                            <th>Detalles</th>
+                            <th>Categoria</th>
+                            <th>Imagen</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                            <td>Call of Duty IV</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="badge badge-warning">Pending</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>iPhone 6 Plus</td>
-                            <td><span class="badge badge-danger">Delivered</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="badge badge-info">Processing</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                            <td>Samsung Smart TV</td>
-                            <td><span class="badge badge-warning">Pending</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                            <td>iPhone 6 Plus</td>
-                            <td><span class="badge badge-danger">Delivered</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                            <td>Call of Duty IV</td>
-                            <td><span class="badge badge-success">Shipped</span></td>
-                            <td>
-                                <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                            </td>
-                        </tr>
+                        <?php foreach ($Mostrar as $item) { ?>
+                            <tr>
+                                <td><?php echo $item['id'] ?></td>
+                                <td><?php echo $item['Nombre'] ?></td>
+                                <td><?php echo $item['Detalle']; ?></td>
+                                <td><?php echo $item['Categoria']; ?></td>
+                                <td><?php $item['Imagen'] ?></td>
+                                <td>$<?php echo $item['Precio'] ?></td>
+                                <td><?php echo $item['Stock']; ?></td>
+                                <td><button type="button" class="btn btn-success">Editar</button>
+                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                </td>
+                            </tr>
+
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -108,16 +78,82 @@ $Mostrar = $Productos->Mostrar();
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+            <button id="btn-abrir-popup" class="btn btn-sm btn-info float-left">Nuevo Producto</button>
+
         </div>
         <!-- /.card-footer -->
     </div>
     <!-- /.card -->
     </div>
     <!-- /.col -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Agregar Nuevo Producto</h3>
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip01">Nombre</label>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Nombre" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Detalle</label>
+                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Detalle del producto" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Precio</label>
+                        <input type="number" class="form-control" id="validationTooltip02" placeholder="Precio del producto" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="inputStatus">Categoria</label>
+                        <select id="inputStatus" class="form-control custom-select">
+                            <option selected disabled>Seleccione una Categoria</option>
+                            <?php foreach ($MostrarCategorias as $categoria) { ?>
+
+                                <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['Nombre'] ?></option>
 
 
+
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationTooltip02">Stock</label>
+                        <input type="number" class="form-control" id="validationTooltip02" placeholder="Stock del producto" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="form-group">
+                    <label for="validationTooltip02">Imagen</label>
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Guardar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/po-up.js"></script>
 
 </body>
 
