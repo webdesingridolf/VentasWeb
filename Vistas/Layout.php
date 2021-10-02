@@ -30,7 +30,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav container-fluid">
 
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="Productos.php">Productos</a>
@@ -73,22 +73,24 @@
 
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <button type="button" class="btn btn-success">Iniciar Sesion</button>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
 
                     <?php
                     if (isset($_SESSION["usuario"])) {
                     ?>
-                        <form action="" method="post">
-                            <input type="submit" name="cerrar" value="cerrar">
+                        <form action="" method="post" class="d-flex">
+                            <li class="nav-item btn "> <?php echo $_SESSION["usuario"]; ?> </li>
+                            <input class="btn btn-dark" type="submit" name="cerrar" value="cerrar">
                         </form>
                     <?php
                     } else {
                     ?>
-                        <li class="nav-item">
+                        
+                        <li class="nav-item d-flex">
                             <a class="btn btn-success" aria-current="page" href="Session.php">login</a>
                             <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
                         </li>
