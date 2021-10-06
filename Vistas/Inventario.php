@@ -86,40 +86,42 @@ $MostrarCategorias = $Categorias->Mostrar();
     <!-- /.card -->
     </div>
     <!-- /.col -->
+
+
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
             <h3>Agregar Nuevo Producto</h3>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" method="post" id="formulario" enctype="multipart/form-data" onsubmit="return false">
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="validationTooltip01">Nombre</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Nombre" required>
+                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre" required>
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="validationTooltip02">Detalle</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Detalle del producto" required>
+                        <input type="text" class="form-control" id="Detalle" placeholder="Detalle del producto" required>
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="validationTooltip02">Precio</label>
-                        <input type="number" class="form-control" id="validationTooltip02" placeholder="Precio del producto" required>
+                        <input type="number" class="form-control" id="Precio" placeholder="Precio del producto" required>
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="inputStatus">Categoria</label>
-                        <select id="inputStatus" class="form-control custom-select">
+                        <select id="Categoria" class="form-control custom-select">
                             <option selected disabled>Seleccione una Categoria</option>
                             <?php foreach ($MostrarCategorias as $categoria) { ?>
 
-                                <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['Nombre'] ?></option>
+                                <option value="<?php echo $categoria['id'] ?>" ><?php echo $categoria['Nombre'] ?></option>
 
 
 
@@ -128,7 +130,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="validationTooltip02">Stock</label>
-                        <input type="number" class="form-control" id="validationTooltip02" placeholder="Stock del producto" required>
+                        <input type="number" class="form-control" id="Stock" placeholder="Stock del producto" required>
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
@@ -139,21 +141,28 @@ $MostrarCategorias = $Categorias->Mostrar();
 
                 </div>
                 <div class="form-group">
+                <img src="" class="card-img-top" id="mostrarimagen">
+
                     <label for="validationTooltip02">Imagen</label>
 
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                        <input type="file" class="custom-file-input" id="Imagen" lang="es">
                         <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                     </div>
                 </div>
+                
                 <div>
-                    <button class="btn btn-primary" type="submit">Guardar Producto</button>
+                    <button class="btn btn-primary" type="submit" onclick="Registrar()">Guardar Producto</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script src="../js/po-up.js"></script>
+    <script src="../js/NewProducto.js"></script>
+    <script src="../JS/sweetalert2.min.js"></script>
+
+
 
 </body>
 

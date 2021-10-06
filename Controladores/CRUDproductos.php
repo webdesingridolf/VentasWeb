@@ -4,8 +4,15 @@ include_once 'conexion.php';
         public function Agregar($nombre,$detalle,$imagen,$categoria,$stock,$precio) {
             $date=new Conexion();
 		    $conexion=$date->Conectar();
-		    $consulta = "INSERT INTO `vw_Ventas` ( `Nombre`, `Precio`, `Imagen`, `Categoria`, `Detalle`, `Stock`) VALUES ('$nombre', '$precio', '$imagen', '$categoria', '$detalle', '$stock');";
+		    $consulta = "INSERT INTO `vw_productos`( `Nombre`, `Precio`,`Imagen`, `Categoria`, `Detalle`, `Stock`) VALUES (:nombre,:precio,:imagen,:categoria,:detalle,:stock)";
 		    $resultado = $conexion->prepare($consulta);
+            $resultado->bindParam(':nombre',$nombre);
+            $resultado->bindParam(':precio',$precio);
+            $resultado->bindParam(':imagen',$imagen);
+            $resultado->bindParam(':categoria',$categoria);
+            $resultado->bindParam(':detalle',$detalle);
+            $resultado->bindParam(':stock',$stock);
+
 		    $resultado->execute();
 	        return $resultado;
             
