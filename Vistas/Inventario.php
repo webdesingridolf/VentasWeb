@@ -42,7 +42,7 @@ $MostrarCategorias = $Categorias->Mostrar();
         <!-- /.card-header -->
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table m-0">
+                <table class="table m-0" id="tabla_productos">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -55,7 +55,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tabla_body">
                         <?php foreach ($Mostrar as $item) { ?>
                             <tr>
                                 <td><?php echo $item['id'] ?></td>
@@ -72,95 +72,110 @@ $MostrarCategorias = $Categorias->Mostrar();
 
                         <?php } ?>
                     </tbody>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Agregar Nuevo Producto
+                    </button>
                 </table>
             </div>
             <!-- /.table-responsive -->
         </div>
         <!-- /.card-body -->
-        <div class="card-footer clearfix">
-            <button id="btn-abrir-popup" class="btn btn-sm btn-info float-left">Nuevo Producto</button>
 
-        </div>
         <!-- /.card-footer -->
     </div>
     <!-- /.card -->
     </div>
     <!-- /.col -->
+    <!--Ventana emergente Boostrap-->
+    <!-- Button trigger modal -->
+    
 
-
-    <div class="overlay" id="overlay">
-        <div class="popup" id="popup">
-            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-            <h3>Agregar Nuevo Producto</h3>
-            <form class="needs-validation" method="post" id="formulario" enctype="multipart/form-data" onsubmit="return false">
-                <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip01">Nombre</label>
-                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Detalle</label>
-                        <input type="text" class="form-control" id="Detalle" placeholder="Detalle del producto" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Precio</label>
-                        <input type="number" class="form-control" id="Precio" placeholder="Precio del producto" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="inputStatus">Categoria</label>
-                        <select id="Categoria" class="form-control custom-select">
-                            <option selected disabled>Seleccione una Categoria</option>
-                            <?php foreach ($MostrarCategorias as $categoria) { ?>
-
-                                <option value="<?php echo $categoria['id'] ?>" ><?php echo $categoria['Nombre'] ?></option>
-
-
-
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Stock</label>
-                        <input type="number" class="form-control" id="Stock" placeholder="Stock del producto" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                    </div>
-
-
-
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Producto Nuevo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-group">
-                <img src="" class="card-img-top" id="mostrarimagen">
+                <div class="modal-body">
+                    <form class="needs-validation" method="post" id="formulario" enctype="multipart/form-data" onsubmit="return false">
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip01">Nombre</label>
+                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Detalle</label>
+                                <input type="text" class="form-control" id="Detalle" placeholder="Detalle del producto" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Precio</label>
+                                <input type="number" class="form-control" id="Precio" placeholder="Precio del producto" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="inputStatus">Categoria</label>
+                                <select id="Categoria" class="form-control custom-select">
+                                    <option selected disabled>Seleccione una Categoria</option>
+                                    <?php foreach ($MostrarCategorias as $categoria) { ?>
 
-                    <label for="validationTooltip02">Imagen</label>
+                                        <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['Nombre'] ?></option>
 
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="Imagen" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                    </div>
+
+
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Stock</label>
+                                <input type="number" class="form-control" id="Stock" placeholder="Stock del producto" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <img src="" class="card-img-top" id="mostrarimagen">
+
+                            <label for="validationTooltip02">Imagen</label>
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="Imagen" lang="es">
+                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                            </div>
+                        </div>
+
+
+                    </form>
                 </div>
-                
-                <div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
                     <button class="btn btn-primary" type="submit" onclick="Registrar()">Guardar Producto</button>
+
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
-    <script src="../js/po-up.js"></script>
+
+
+
+
     <script src="../js/NewProducto.js"></script>
-    <script src="../JS/sweetalert2.min.js"></script>
 
 
 

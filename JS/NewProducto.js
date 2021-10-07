@@ -26,7 +26,6 @@ function Registrar() {
     var stock = $("#Stock").val();
     var imagen = $("#Imagen").val();
     var categoria = $("#Categoria").val();
-    var formulario = $("#formulario").val();
 
     var formData = new FormData();
     var foto = $("#Imagen")[0].files[0];
@@ -52,10 +51,13 @@ function Registrar() {
 
 
                 document.getElementById("formulario").reset();
-                overlay.classList.remove('active');
-                popup.classList.remove('active');
+                
+                document.getElementById("mostrarimagen").style.display = "none";
+
+                $('#tabla_productos').load('../Vistas/Inventario.php #tabla_body');
 
                 alert("agregado con exito")
+                
 
             }
         }

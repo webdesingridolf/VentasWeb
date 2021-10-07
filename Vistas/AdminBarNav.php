@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="Modal/bootstrap4/css/bootstrap.min.css">	         
+      
+      <link rel="stylesheet" href="Modal/jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css">  
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -250,13 +253,7 @@
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0-rc
-            </div>
-        </footer>
+       
     </div>
     <!-- ./wrapper -->
 
@@ -279,10 +276,17 @@
     <!-- ChartJS -->
     <script src="plugins/chart.js/Chart.min.js"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard2.js"></script>
+    <!-- AdminLTE for demo purposes 
+    <script src="dist/js/demo.js"></script>-->
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) 
+    <script src="dist/js/pages/dashboard2.js"></script>-->
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+
+    <script src="Modal/jquery/jquery-3.3.1.min.js"></script>	 	
+    <script src="Modal/popper/popper.min.js"></script>	 	 	
+    <script src="Modal/bootstrap4/js/bootstrap.min.js"></script>   	
+    <script src="Modal/jqueryUI/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 </body>
 
 </html>

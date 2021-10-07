@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once("Layout.php");
+  
 
 ?>
 <!DOCTYPE html>
@@ -13,5 +14,8 @@
 </head>
 <body>
     <p>este es el inicio</p>
+    <!-- Button trigger modal -->
+
+
 </body>
 </html>

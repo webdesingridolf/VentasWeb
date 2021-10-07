@@ -7,7 +7,7 @@ class Acciones
 	public function Mostrar(){
 		$date=new Conexion();
 		$conexion=$date->Conectar();
-		$consulta = "SELECT * FROM vw_productos";
+		$consulta = "SELECT * FROM vw_productos ORDER BY id ASC;";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
