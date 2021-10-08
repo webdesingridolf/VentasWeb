@@ -58,7 +58,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                     <tbody id="tabla_body">
                         <?php foreach ($Mostrar as $item) { ?>
                             <tr>
-                                <td><?php echo $item['id'] ?></td>
+                                <td ><?php echo $item['id'] ?></td>
                                 <td><?php echo $item['Nombre'] ?></td>
                                 <td><?php echo $item['Detalle']; ?></td>
                                 <td><?php echo $item['Categoria']; ?></td>
@@ -66,7 +66,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                                 <td>$<?php echo $item['Precio'] ?></td>
                                 <td><?php echo $item['Stock']; ?></td>
                                 <td><button type="button" class="btn btn-success">Editar</button>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                    <button type="button" class="btn btn-danger" onclick="eliminar(<?php echo $item['id'] ?>)">Eliminar</button>
                                 </td>
                             </tr>
 
@@ -176,6 +176,32 @@ $MostrarCategorias = $Categorias->Mostrar();
 
 
     <script src="../js/NewProducto.js"></script>
+    <script src="../js/EliminarProducto.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    
+    <!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+<!-- 
+    RTL version
+-->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+
 
 
 

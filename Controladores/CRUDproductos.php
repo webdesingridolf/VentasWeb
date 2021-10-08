@@ -20,8 +20,14 @@ include_once 'conexion.php';
         public function Actualizar(){
 
         }
-        public function Eliminar(){
-
+        public function Eliminar($id){
+            $date=new Conexion();
+		    $conexion=$date->Conectar();
+		    $consulta = "DELETE FROM `vw_productos` WHERE id=$id";
+		    $resultado = $conexion->prepare($consulta);
+            
+            $resultado->execute();
+	        return $resultado;
         }
     }
     class CRUDCategorias{

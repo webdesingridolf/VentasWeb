@@ -40,7 +40,7 @@ function Registrar() {
 
 
     $.ajax({
-        url: 'confirmacion.php',
+        url: 'AgregarProducto.php',
         type: 'post',
         data: formData,
         contentType: false,

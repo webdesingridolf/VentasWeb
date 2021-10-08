@@ -10,11 +10,7 @@ $tamanoArchivo = $_FILES['f']['size'];
 $imagenSubida = fopen($_FILES['f']['tmp_name'], 'r');
 $binariosImagen = fread($imagenSubida, $tamanoArchivo);
 
-/*$imagen=$_FILES['f'];*/
-include_once '../Controladores/conexion.php';
-$date=new Conexion();
-$conexion=$date->Conectar();
-$final=$conexion->quote($binariosImagen);
+
 
 
 include_once '../Controladores/CRUDProductos.php';
