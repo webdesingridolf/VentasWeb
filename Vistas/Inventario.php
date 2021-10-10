@@ -56,17 +56,29 @@ $MostrarCategorias = $Categorias->Mostrar();
                         </tr>
                     </thead>
                     <tbody id="tabla_body">
-                        <?php foreach ($Mostrar as $item) { ?>
+                        <?php foreach ($Mostrar as $item) {
+
+                            $Datos =$item['id']."||".
+                                    $item['Nombre']."||".
+                                    $item['Categoria']."||".
+                                    $item['Detalle']."||".
+                                    $item['Precio']."||".
+                                    $item['Stock'];
+
+                        ?>
                             <tr>
-                                <td ><?php echo $item['id'] ?></td>
-                                <td><?php echo $item['Nombre'] ?></td>
+                                <td><?php echo $item['id']; ?></td>
+                                <td><?php echo $item['Nombre']; ?></td>
                                 <td><?php echo $item['Detalle']; ?></td>
                                 <td><?php echo $item['Categoria']; ?></td>
-                                <td><?php $item['Imagen'] ?></td>
-                                <td>$<?php echo $item['Precio'] ?></td>
+                                <td><img width="10px" src="data:image/png;base64,<?php echo base64_encode($item['Imagen']) ?>"> </td>
+                                <td>$<?php echo $item['Precio']; ?></td>
                                 <td><?php echo $item['Stock']; ?></td>
-                                <td><button type="button" class="btn btn-success">Editar</button>
-                                    <button type="button" class="btn btn-danger" onclick="eliminar(<?php echo $item['id'] ?>)">Eliminar</button>
+                                <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditar" onclick="CargarDatos('<?php echo $Datos  ?>','<?php echo  base64_encode($item['Imagen']) ?>')">
+                        Editar
+                    </button>
+                                    <button type="button" class="btn btn-danger" onclick="Preguntar(<?php echo $item['id']; ?>)">Eliminar</button>
                                 </td>
                             </tr>
 
@@ -88,7 +100,7 @@ $MostrarCategorias = $Categorias->Mostrar();
     <!-- /.col -->
     <!--Ventana emergente Boostrap-->
     <!-- Button trigger modal -->
-    
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -171,36 +183,89 @@ $MostrarCategorias = $Categorias->Mostrar();
         </div>
     </div>
 
+    <!--modal actualizar producto-->
+    <!-- Modal -->
+    <div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Producto </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" method="post" id="UpdateForm" enctype="multipart/form-data" onsubmit="return false">
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip01">Nombre</label>
+                                <input type="text" class="form-control" id="name"  required>
+                                
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Detalle</label>
+                                <input type="text" class="form-control" id="detalle"  required>
+                                
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Precio</label>
+                                <input type="number" class="form-control" id="precio"  required>
+                               
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="inputStatus">Categoria</label>
+                                <select id="categoria" class="form-control custom-select">
+                                    <option selected disabled>Seleccione una Categoria</option>
+                                    <?php foreach ($MostrarCategorias as $categoria) { ?>
+
+                                        <option value="<?php echo $categoria['id'] ?>"><?php echo $categoria['Nombre'] ?></option>
 
 
 
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Stock</label>
+                                <input type="number" class="form-control" id="stock" placeholder="Stock del producto" required>
+                                
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <img src="" class="card-img-top" id="mostrarimagen">
+
+                            <label for="validationTooltip02">Imagen</label>
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="Imagen" lang="es">
+                                <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                    <button class="btn btn-primary" type="submit" onclick="">Actualizar Producto</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script src="../js/NewProducto.js"></script>
     <script src="../js/EliminarProducto.js"></script>
 
 
 
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    
-    <!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<!-- Default theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-<!-- Semantic UI theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
-<!-- Bootstrap theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-
-<!-- 
-    RTL version
--->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
-<!-- Default theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
-<!-- Semantic UI theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
-<!-- Bootstrap theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
 
 
 
