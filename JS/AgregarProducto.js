@@ -54,10 +54,14 @@ function Registrar() {
                 
                 document.getElementById("mostrarimagen").style.display = "none";
 
-                $('#tabla_productos').load('../Vistas/Inventario.php #tabla_body');
+                $('#contenedortabla').load('../Vistas/Inventario.php #tabla_productos');
 
-                alert("agregado con exito")
+                alertify.success('Producto Agregado con exito');
                 
+
+            }
+            else{
+                alertify.error('Error al insertar nuevo producto');
 
             }
         }
@@ -88,7 +92,7 @@ function eliminar(id) {
         processData: false,
         success: function (r) {
             if(r==1){
-                $('#tabla_productos').load('../Vistas/Inventario.php #tabla_body');
+                $('#contenedortabla').load('../Vistas/Inventario.php #tabla_productos');
                 alertify.success('Eliminado con exito');
 
             }else{

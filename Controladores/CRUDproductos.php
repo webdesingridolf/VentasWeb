@@ -17,7 +17,25 @@ include_once 'conexion.php';
 	        return $resultado;
             
         }
-        public function Actualizar(){
+        public function Actualizar($id,$nombre,$detalle,$imagen,$categoria,$stock,$precio){
+            $date=new Conexion();
+		    $conexion=$date->Conectar();
+		    $consulta = "UPDATE `vw_productos` SET Nombre=:nombre, Precio=:precio,Imagen=:imagen,Categoria=:categoria,Detalle=:detalle,Stock=:stock WHERE id=:id";
+		    $resultado = $conexion->prepare($consulta);
+            $resultado->bindParam(':nombre',$nombre);
+            $resultado->bindParam(':precio',$precio);
+            $resultado->bindParam(':imagen',$imagen);
+            $resultado->bindParam(':categoria',$categoria);
+            $resultado->bindParam(':detalle',$detalle);
+            $resultado->bindParam(':stock',$stock);
+            $resultado->bindParam(':id',$id);
+
+
+		    $resultado->execute();
+	        return $resultado;
+
+
+
 
         }
         public function Eliminar($id){

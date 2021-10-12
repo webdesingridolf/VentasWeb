@@ -41,7 +41,7 @@ $MostrarCategorias = $Categorias->Mostrar();
         </div>
         <!-- /.card-header -->
         <div class="card-body p-0">
-            <div class="table-responsive">
+            <div class="table-responsive" id="contenedortabla">
                 <table class="table m-0" id="tabla_productos">
                     <thead>
                         <tr>
@@ -71,7 +71,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                                 <td><?php echo $item['Nombre']; ?></td>
                                 <td><?php echo $item['Detalle']; ?></td>
                                 <td><?php echo $item['Categoria']; ?></td>
-                                <td><img width="10px" src="data:image/png;base64,<?php echo base64_encode($item['Imagen']) ?>"> </td>
+                                <td><img width="100px" src="data:image/png;base64,<?php echo base64_encode($item['Imagen']) ?>"> </td>
                                 <td>$<?php echo $item['Precio']; ?></td>
                                 <td><?php echo $item['Stock']; ?></td>
                                 <td>
@@ -197,22 +197,23 @@ $MostrarCategorias = $Categorias->Mostrar();
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip01">Nombre</label>
-                                <input type="text" class="form-control" id="name"  required>
+                                <input type="text" class="form-control" id="UpName"  required>
+                                <input type="hidden"  id="UpId">
                                 
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip02">Detalle</label>
-                                <input type="text" class="form-control" id="detalle"  required>
+                                <input type="text" class="form-control" id="UpDetalle"  required>
                                 
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip02">Precio</label>
-                                <input type="number" class="form-control" id="precio"  required>
+                                <input type="number" class="form-control" id="UpPrecio"  required>
                                
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="inputStatus">Categoria</label>
-                                <select id="categoria" class="form-control custom-select">
+                                <select id="UpCategoria" class="form-control custom-select">
                                     <option selected disabled>Seleccione una Categoria</option>
                                     <?php foreach ($MostrarCategorias as $categoria) { ?>
 
@@ -225,7 +226,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip02">Stock</label>
-                                <input type="number" class="form-control" id="stock" placeholder="Stock del producto" required>
+                                <input type="number" class="form-control" id="UpStock" placeholder="Stock del producto" required>
                                 
                             </div>
 
@@ -234,12 +235,12 @@ $MostrarCategorias = $Categorias->Mostrar();
 
                         </div>
                         <div class="form-group">
-                            <img src="" class="card-img-top" id="mostrarimagen">
+                            <img src="" class="card-img-top" id="mostrarimage">
 
                             <label for="validationTooltip02">Imagen</label>
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="Imagen" lang="es">
+                                <input type="file" class="custom-file-input" id="UpImage" lang="es">
                                 <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                             </div>
                         </div>
@@ -250,7 +251,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-                    <button class="btn btn-primary" type="submit" onclick="">Actualizar Producto</button>
+                    <button class="btn btn-primary" type="submit" onclick="Actualizar()">Actualizar Producto</button>
 
                 </div>
             </div>
@@ -261,8 +262,8 @@ $MostrarCategorias = $Categorias->Mostrar();
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <script src="../js/NewProducto.js"></script>
-    <script src="../js/EliminarProducto.js"></script>
+    <script src="../js/AgregarProducto.js"></script>
+    <script src="../js/ActualizarProducto.js"></script>
 
 
 
