@@ -1,7 +1,7 @@
 <?php
 include_once("AdminBarNav.php");
-include_once '../Controladores/CRUD.php';
-include_once '../Controladores/CRUDProductos.php';
+include_once ('../Controladores/CRUD.php');
+include_once ('../Controladores/CRUDProductos.php');
 
 $Productos = new Acciones();
 $Mostrar = $Productos->Mostrar();

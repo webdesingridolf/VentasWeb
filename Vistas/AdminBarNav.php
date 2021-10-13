@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="Modal/jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 
 
 </head>
@@ -215,13 +215,30 @@
                             </a>
                         </li>
 
+
                         <li class="nav-item">
-                            <a href="Inventario.php" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="far fa-clipboard"></i>
                                 <p>
                                     Inventario
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="Inventario.php" class="nav-link">
+                                        <i class="fab fa-product-hunt"></i>
+                                        <p>Productos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Categorias.php" class="nav-link">
+                                        <i class="fas fa-tags"></i>
+                                        <p>Categorias</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">
