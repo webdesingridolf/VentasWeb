@@ -28,10 +28,14 @@ $MostrarCategorias = $Categorias->Mostrar();
             <h3 class="card-title">Lista de Categorias</h3>
 
         </div>
+        
         <!-- /.card-header -->
         <div class="card-body p-0">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Agregar">
+                        Agregar Nueva Categoria
+                    </button>
             <div class="table-responsive" id="contenedortabla">
-                <table class="table m-0" id="tabla_productos">
+                <table class="table m-0" id="tabla_categorias">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -53,18 +57,16 @@ $MostrarCategorias = $Categorias->Mostrar();
                                 <td><?php echo $item['Nombre']; ?></td>
 
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditar" onclick="">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdateModal" onclick="CargarDatos('<?php echo $Datos  ?>')">
                                         Editar
                                     </button>
-                                    <button type="button" class="btn btn-danger" onclick="">Eliminar</button>
+                                    <button type="button" class="btn btn-danger" onclick="Preguntar(<?php echo $item['id'] ?>)">Eliminar</button>
                                 </td>
                             </tr>
 
                         <?php } ?>
                     </tbody>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Agregar">
-                        Agregar Nueva Categoria
-                    </button>
+                    
                 </table>
             </div>
             <!-- /.table-responsive -->
@@ -85,7 +87,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="needs-validation" method="post" id="formulario" enctype="multipart/form-data" onsubmit="return false">
+                    <form class="needs-validation" method="post" id="formAgregar" enctype="multipart/form-data" onsubmit="return false">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip01">Nombre</label>
@@ -101,16 +103,16 @@ $MostrarCategorias = $Categorias->Mostrar();
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-                    <button class="btn btn-primary" type="submit" onclick="">Guardar Categoria</button>
+                    <button class="btn btn-primary" type="submit" onclick=" Agregar()">Guardar Categoria</button>
 
                 </div>
             </div>
         </div>
     </div>
 
-    <!--modal actualizar producto-->
+    <!--modal actualizar Categoria-->
     <!-- Modal -->
-    <div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="UpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,13 +135,13 @@ $MostrarCategorias = $Categorias->Mostrar();
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-                    <button class="btn btn-primary" type="submit" onclick="">Actualizar Categoria</button>
+                    <button class="btn btn-primary" type="submit" onclick=" Actualizar()">Actualizar Categoria</button>
 
                 </div>
             </div>
         </div>
     </div>
-    
+    <script src="../JS/categorias.js"></script>
 
 </body>
 

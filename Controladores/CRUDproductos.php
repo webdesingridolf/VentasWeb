@@ -34,9 +34,6 @@ include_once 'conexion.php';
 		    $resultado->execute();
 	        return $resultado;
 
-
-
-
         }
         public function Eliminar($id){
             $date=new Conexion();
@@ -52,11 +49,40 @@ include_once 'conexion.php';
         public function Mostrar(){
             $date=new Conexion();
             $conexion=$date->Conectar();
-            $consulta = "SELECT * FROM vw_categoria";
+            $consulta = "SELECT * FROM vw_categoria ORDER BY id ASC";
             $resultado = $conexion->prepare($consulta);
             $resultado->execute();
             $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
             return $data;
+        }
+        public function Agregar($nombre){
+            $date=new Conexion();
+            $conexion=$date->Conectar();
+		    $consulta = "INSERT INTO `vw_categoria`( `Nombre`) VALUES (:nombre)";
+            $resultado = $conexion->prepare($consulta);
+            $resultado->bindParam(':nombre',$nombre);
+            $resultado->execute();
+            $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+        public function Eliminar($id){
+            $date=new Conexion();
+		    $conexion=$date->Conectar();
+		    $consulta = "DELETE FROM `vw_categoria` WHERE id=$id";
+		    $resultado = $conexion->prepare($consulta);          
+            $resultado->execute();
+	        return $resultado;
+        }
+        public function Actualizar($id,$nombre){
+            $date=new Conexion();
+		    $conexion=$date->Conectar();
+		    $consulta = "UPDATE `vw_categoria` SET Nombre=:nombre WHERE id=:id";
+		    $resultado = $conexion->prepare($consulta);
+            $resultado->bindParam(':nombre',$nombre);
+            $resultado->bindParam(':id',$id);
+
+		    $resultado->execute();
+	        return $resultado;
         }
     }
 ?>
