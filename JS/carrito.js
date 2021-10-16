@@ -14,7 +14,6 @@ class Carrito {
     //Leer datos del producto
     leerDatosProducto(producto){
         const infoProducto = {
-            imagen : producto.querySelector('img').src,
             titulo: producto.querySelector('h4').textContent,
             precio: producto.querySelector('.precio span').textContent,
             id: producto.querySelector('a').getAttribute('data-id'),
@@ -47,9 +46,7 @@ class Carrito {
     insertarCarrito(producto){
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>
-                <img src="${producto.imagen}" width=100>
-            </td>
+            
             <td>${producto.titulo}</td>
             <td>${producto.precio}</td>
             <td>
@@ -119,9 +116,7 @@ class Carrito {
             //Construir plantilla
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>
-                    <img src="${producto.imagen}" width=100>
-                </td>
+                
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
@@ -139,9 +134,7 @@ class Carrito {
         productosLS.forEach(function (producto){
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>
-                    <img src="${producto.imagen}" width=100>
-                </td>
+                
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>

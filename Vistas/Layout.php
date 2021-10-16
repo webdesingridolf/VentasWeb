@@ -57,7 +57,6 @@
                                     <table id="lista-carrito" class="table">
                                         <thead>
                                             <tr>
-                                                <th>Imagen</th>
                                                 <th>Nombre</th>
                                                 <th>Precio</th>
                                                 <th></th>
@@ -125,7 +124,6 @@
 <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-<script src="dist/js/pages/dashboard2.js"></script>
 
 
 </html>
