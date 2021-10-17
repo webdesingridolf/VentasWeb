@@ -6,11 +6,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
 
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -23,34 +19,31 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #2287bd;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="inicio.php">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav container-fluid">
+    
+    <nav class="navbar navbar-expand-md navbar">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                    <a class="navbar-brand" href="inicio.php">Inicio</a>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Productos.php">Productos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Nosotros.php">Contactenos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nuestros Servicios
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Reparacion de Ordenadores y Laptops</a></li>
-                            <li><a class="dropdown-item" href="#">Recuperacion de Datos</a></li>
-                            <li><a class="dropdown-item" href="#">Instalacion de Antivirus</a></li>
-                        </ul>
-                    </li>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Productos.php">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Nosotros.php">Contactenos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nuestros Servicios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Reparacion de Ordenadores y Laptops</a></li>
+                        <li><a class="dropdown-item" href="#">Recuperacion de Datos</a></li>
+                        <li><a class="dropdown-item" href="#">Instalacion de Antivirus</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
                                 <i class="fas fa-shopping-cart nav-link dropdown-toggle img-fluid" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
                                 <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
@@ -72,13 +65,12 @@
 
                                 </div>
                             </li>
-                            <!-- <li class="nav-item">
-                                <button type="button" class="btn btn-success">Iniciar Sesion</button>
-                            </li> -->
-                        </ul>
-                    </div>
-
-                    <?php
+            </ul>
+        </div>
+       
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+            <?php
                     if (isset($_SESSION["usuario"])) {
                     ?>
                         <form action="" method="post" class="d-flex">
@@ -88,8 +80,8 @@
                     <?php
                     } else {
                     ?>
-                        
-                        <li class="nav-item d-flex">
+
+                        <li class="nav-item navbar-right">
                             <a class="btn btn-success" aria-current="page" href="Session.php">login</a>
                             <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
                         </li>
@@ -97,33 +89,22 @@
                     }
 
                     ?>
-
-
-                </ul>
-            </div>
+            </ul>
         </div>
     </nav>
 
 
-</body>
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+
+
+
+
+
+
+</body>
+
+<script src="../js/sweetalert2.min.js"></script>
+
 
 
 </html>

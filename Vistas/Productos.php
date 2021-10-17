@@ -4,7 +4,6 @@ include_once '../Controladores/CRUD.php';
 include_once  '../Controladores/config.php';
 $Productos = new Acciones();
 $Mostrar = $Productos->Mostrar();
-$json=json_encode($Mostrar);
 ?>
 
 
@@ -14,12 +13,8 @@ $json=json_encode($Mostrar);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/sweetalert2.min.css">
+
 
     <title>Carrito Compras en JavaScript</title>
 </head>
