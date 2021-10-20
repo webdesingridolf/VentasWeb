@@ -14,6 +14,7 @@ class Carrito {
     //Leer datos del producto
     leerDatosProducto(producto){
         const infoProducto = {
+           
             titulo: producto.querySelector('h4').textContent,
             precio: producto.querySelector('.precio span').textContent,
             id: producto.querySelector('a').getAttribute('data-id'),
@@ -116,7 +117,7 @@ class Carrito {
             //Construir plantilla
             const row = document.createElement('tr');
             row.innerHTML = `
-                
+               
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
@@ -135,15 +136,15 @@ class Carrito {
             const row = document.createElement('tr');
             row.innerHTML = `
                 
-                <td>${producto.titulo}</td>
-                <td>${producto.precio}</td>
-                <td>
-                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
-                </td>
-                <td id='subtotales'>${producto.precio * producto.cantidad}</td>
-                <td>
-                    <a href="#" class="borrar-producto fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
-                </td>
+            <td>${producto.titulo}</td>
+            <td>${producto.precio}</td>
+            <td>
+                <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
+            </td>
+            <td id='subtotales'>${producto.precio * producto.cantidad}</td>
+            <td>
+                <a href="#" class="borrar-producto fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
+            </td>
             `;
             listaCompra.appendChild(row);
         });

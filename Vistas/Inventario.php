@@ -129,7 +129,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip02">Precio</label>
-                                <input type="number" class="form-control" id="Precio" placeholder="Precio del producto" required>
+                                <input type="number"  min="1" class="form-control" id="Precio" placeholder="Precio del producto" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
@@ -149,7 +149,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip02">Stock</label>
-                                <input type="number" class="form-control" id="Stock" placeholder="Stock del producto" required>
+                                <input type="number" min="1" class="form-control" id="Stock" placeholder="Stock del producto" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
@@ -207,7 +207,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                                 
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationTooltip02">Precio</label>
+                                <label for="validationTooltip02" min="1">Precio</label>
                                 <input type="number" class="form-control" id="UpPrecio"  required>
                                
                             </div>
@@ -225,7 +225,7 @@ $MostrarCategorias = $Categorias->Mostrar();
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationTooltip02">Stock</label>
+                                <label for="validationTooltip02" min="1" >Stock</label>
                                 <input type="number" class="form-control" id="UpStock" placeholder="Stock del producto" required>
                                 
                             </div>

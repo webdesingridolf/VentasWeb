@@ -1,6 +1,4 @@
-<?php
-    include_once("Layout.php")
-?>
+
 
 
 <!DOCTYPE html>
@@ -8,42 +6,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Carrito Compras en JavaScript</title>
+    <title>Carrito Compras </title>
 
 </head>
 
 <body>
-   
-  
+
+
     <main>
         <div class="container">
             <div class="row mt-3">
                 <div class="col">
                     <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
                     <form id="procesar-pago">
-                        <div class="form-group row">
-                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="cliente"
-                                    placeholder="Ingresa nombre cliente" name="destinatario">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
-                            </div>
-                        </div>
 
-                        <div id="carrito" class="form-group table-responsive" >
-                            <table class="form-group table" id="lista-compra" >
+                        <div id="carrito" class="form-group table-responsive">
+                            <table class="form-group table" id="lista-compra">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Imagen</th>
+
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Precio</th>
                                         <th scope="col">Cantidad</th>
@@ -52,9 +36,9 @@
                                     </tr>
 
                                 </thead>
-                                <tbody >
+                                <tbody id="item">
 
-                                </tbody>
+                                </tbody >
                                 <tr>
                                     <th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
                                     <th scope="col">
@@ -80,8 +64,28 @@
                             </table>
                         </div>
 
-                        <div class="row justify-content-center" id="loaders">
-                            <img id="cargando" src="img/cargando.gif" width="220">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nombre Completo</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Direccion</label>
+                                <input type="address" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Correo</label>
+                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Telefono</label>
+                                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Fecha</label>
+                                <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            
                         </div>
 
                         <div class="row justify-content-between">
@@ -118,6 +122,12 @@
 
     <script src="../js/carrito.js"></script>
     <script src="../js/compra.js"></script>
+    <script>
+        var item=document.querySelectorAll('#item')
+        item.forEach((items)=>{
+            const precio=items.querySelector('#pr')
+        })
+    </script>
 
 
 </body>

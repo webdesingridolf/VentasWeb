@@ -20,7 +20,11 @@ include_once "CRUDUsuario.php";
 
 $creartablaproducto = new CrearTablaProduto();
 //$creartablaproducto->CrearTablaDetalleVenta();
-$creartablaproducto->CrearTablaProducto();
+//$creartablaproducto->CrearTablaProducto();
+//$creartablaproducto->CrearTablaCliente();
+//$creartablaproducto->CrearTablaDetalleVenta();
+//$creartablaproducto->CrearTablaVenta();
+
 //$creartablaproducto->CrearTablaVenta();
 //$creartablaproducto->CrearTablaDepartamento();
 //$creartablaproducto->CrearTablaProvincia();
