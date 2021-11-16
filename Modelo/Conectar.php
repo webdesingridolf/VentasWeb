@@ -1,5 +1,5 @@
 <?php
-    include_once "../Controladores/config.php";
+    include_once "../../Controladores/config.php";
     class Conexiondb{
     
         public function Conectar(){

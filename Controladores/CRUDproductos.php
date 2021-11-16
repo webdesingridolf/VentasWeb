@@ -85,4 +85,21 @@ include_once 'conexion.php';
 	        return $resultado;
         }
     }
+    class CRUDventas{
+        public function Agregar($id,$cantidad,$precio){
+            
+            $date=new Conexion();
+            $conexion=$date->Conectar();
+		    $consulta = "INSERT INTO `vw_detalleventa`( `ProductoId`,`Cantidad`,`Precio`) VALUES (:prid,:cantidad,:precio)";
+            $resultado = $conexion->prepare($consulta);
+            $resultado->bindParam(':prid',$id);
+            $resultado->bindParam(':cantidad',$cantidad);
+            $resultado->bindParam(':precio',$precio);
+
+            $resultado->execute();
+            $lastid=$conexion->lastInsertId();
+
+          echo( $lastid);
+        }
+    }
 ?>
