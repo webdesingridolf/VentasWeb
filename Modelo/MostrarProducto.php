@@ -1,5 +1,5 @@
 <?php
-    require_once("../../Modelo/Conectar.php");
+    require_once("../Modelo/Conectar.php");
     class CRUDProductos{
         //require_once("Conectar.php"):
         public function Mostrar(){

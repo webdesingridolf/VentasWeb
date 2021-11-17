@@ -1,6 +1,3 @@
-<?php
-?>
-
 <header class="header-v2">
 	<!-- Header desktop -->
 	<div class="container-menu-desktop trans-03">
@@ -9,19 +6,19 @@
 
 				<!-- Logo desktop -->
 				<a href="#" class="logo">
-					<img src="../../assets/img/sam.png" alt="IMG-LOGO">
+					<img src="../assets/img/sam.png" alt="IMG-LOGO">
 				</a>
 
 				<!-- Menu desktop -->
 				<div class="menu-desktop">
 					<ul class="main-menu">
 						<li class="active-menu">
-							<a href="../home/home.php">Inicio</a>
+							<a href="home/home.php">Inicio</a>
 
 						</li>
 
 						<li class="label1" data-label1="hot">
-							<a href="../productosVista/productosVista.php">Productos</a>
+							<a href="../productos.php">Productos</a>
 						</li>
 
 
@@ -39,8 +36,8 @@
 						<li>
 							<a href="contact.html">Contactenos</a>
 						</li>
-						<li class="nav-item dropdown">
-                                <i class="fas fa-shopping-cart nav-link dropdown-toggle img-fluid" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+						<li class="nav-item dropdown icon-header-item">
+                                <i class="zmdi zmdi-shopping-cart nav-link dropdown-toggle img-fluid" height="70px" width="70px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
                                 <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
                                     <table id="lista-carrito" class="table">
@@ -66,18 +63,29 @@
 
 				<!-- Icon header -->
 				<div class="wrap-icon-header flex-w flex-r-m h-full">
-
-
-					<div class="flex-c-m h-full p-l-18 p-r-25 bor5">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-					</div>
+	
 					<div class="flex-c-m h-full p-l-18 p-r-25 bor5">
 
-						<a href="#">Iniciar Sesion
-							<i class="fa fa-sign-in" aria-hidden="true"></i>
-						</a>
+					<?php
+                        if (isset($_SESSION["usuario"])) {
+                        ?>
+                            <form action="" method="post" class="d-flex">
+                                <li class="nav-item btn "> <?php echo $_SESSION["usuario"]; ?> </li>
+                                <input class="btn btn-dark" type="submit" name="cerrar" value="cerrar">
+                            </form>
+                        <?php
+                        } else {
+                        ?>
+
+                            <li class="nav-item navbar-right">
+                                <a href="Session.php">Iniciar Sesion</a> <i class="fa fa-sign-in" aria-hidden="true"></i>
+
+                                <!-- <a href="Session.php" id="log-in" class="btn btn-danger btn-block">login</a> -->
+                            </li>
+                        <?php
+                        }
+
+                        ?>
 					</div>
 
 				</div>
@@ -89,7 +97,7 @@
 	<div class="wrap-header-mobile nav-principal">
 		<!-- Logo moblie -->
 		<div class="logo-mobile">
-			<a href="index.html"><img src="../../assets/img/sam.png" alt="IMG-LOGO"></a>
+			<a href="index.html"><img src="../assets/img/sam.png" alt="IMG-LOGO"></a>
 		</div>
 
 		<!-- Icon header -->

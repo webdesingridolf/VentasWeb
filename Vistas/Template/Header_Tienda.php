@@ -50,5 +50,5 @@
 
 </html>
 <?php
-require_once('Nav_Tienda.php');
+require_once('Nav_Tienda_sub.php');
 ?>

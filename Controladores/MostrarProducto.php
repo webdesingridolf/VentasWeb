@@ -3,7 +3,7 @@ class modelocontroller {
 
 
     public function MostrarProducto(){
-        require_once("../../Modelo/index.php");
+        require_once("../Modelo/MostrarProducto.php");
 
         $Modelo =  new  CRUDProductos();
         $stmt = $Modelo->Mostrar();
